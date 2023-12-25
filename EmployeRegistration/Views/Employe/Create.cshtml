@@ -1,0 +1,57 @@
+﻿@model Entities.BizEntites.BizEmployeInfo;
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post">
+    <div class="border-3 p-3 mt-4">
+
+        <div class="breadcrumbs-area">
+            <h3>
+                Employe Form >
+
+                @if (Model != null)
+                {
+                    <a>Update Employe Details </a>
+                    <br />
+                    <hr />
+                }
+                else
+                {
+                    <a> Add Employe Details</a>
+                    <br />
+                    <hr />
+                }
+            </h3>
+        </div>
+
+        <div class="row mb-3">
+            <input asp-for="EmpId" class="form-control" hidden="hidden" />
+            <div class="col-6">
+                <label asp-for="EmpName"></label>
+            </div>
+
+            <div class="col-6">
+                <input asp-for="EmpName" class="form-control" />
+            </div>
+
+        </div>
+        <div class="row mb-3">
+            <div class="col-6">
+                <label asp-for="EmpWork"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="EmpWork" type="number" class="form-control" />
+            </div>
+        </div>
+        <button class="btn btn-primary w-25 m-0" type="submit">  <i class="bi bi-person-plus"></i> Add</button>
+    </div>
+    <br />
+
+
+    <a asp-action="Index" asp-controller="Employe" class="text-primary">Back To Page</a>
+
+
+</form>
+

@@ -1,0 +1,71 @@
+﻿@using Entities.BizEntites;
+@model IEnumerable<BizEmployeInfo>
+@{
+    ViewData["Title"] = "Employe Form";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Employe Registration Form</h1>
+    <hr />
+
+    <div class="container p-4">
+        <div class="row p-3">
+            <div class="col-6">
+                <span class="text-primary">  Employe table</span>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-primary" asp-area="" asp-controller="Employe" asp-action="Create"> <i class="bi bi-person-plus"></i> Add Employe</a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-secondary" style="width:100%">
+        <thead class="table-light">
+            <tr>
+                <th>
+                    Sr.
+                </th>
+                <th>
+                    Employe name
+                </th>
+                <th>
+                    Employe work
+                </th>
+                <th>
+                    Action
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @item.EmpId
+                    </td>
+                    <td>
+                        @item.EmpName
+                    </td>
+                    <td>
+                        @item.EmpWork
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/Employe/Create?id=@item.EmpId"> Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="/Employe/Delete?id=@item.EmpId"> delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+</div>
+
